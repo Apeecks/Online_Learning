@@ -3,6 +3,8 @@ from django.db import models
 
 
 class User(AbstractUser):
+    username = None
+
     email = models.EmailField(
         unique=True,
         verbose_name='email',
@@ -23,7 +25,7 @@ class User(AbstractUser):
     )
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username', ]
+    REQUIRED_FIELDS = []
 
     def __str__(self):
         return f"{self.email}"
